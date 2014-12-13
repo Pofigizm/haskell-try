@@ -1,0 +1,1 @@
+Simple try functionaly programming on Haskell
