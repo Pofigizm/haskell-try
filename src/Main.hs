@@ -3,7 +3,6 @@
 
 main = print (prepareLength 2.5)
 
-prepareLength :: Double -> Double
 prepareLength line =
   let
     cons = 4
