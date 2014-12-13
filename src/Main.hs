@@ -1,10 +1,19 @@
 -- import Data.Text
 -- import Helpers
 
-main = putStrLn (indicate "")
+main = print (prepareLength 2.5)
 
-indicate :: String -> String
-indicate address
-  | address == "127.0.0.1" = "localhost"
-  | null address = "empty Ip-address"
-  | otherwise = address
+prepareLength :: Double -> Double
+prepareLength line =
+  let
+    cons = 4
+    corr = 0.5
+    s = 5
+  in
+    line * cons + corr -
+    (
+      let
+        s = 1
+      in
+        s / 2
+    ) - s
