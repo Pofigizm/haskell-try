@@ -2,8 +2,8 @@ import Control.Exception
 
 main :: IO ()
 main = do
-  result <- try $ readFile path :: IO (Either IOException String)
+  result <- try $ evaluate $ 2 `div` 0
+                  :: IO (Either SomeException Integer)
   case result of
     Left exception -> putStrLn $ "Fault: " ++ show exception
-    Right content -> putStrLn content
-  where path = "c://dev/test.c"
+    Right value -> print value
