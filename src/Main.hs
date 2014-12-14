@@ -1,13 +1,9 @@
 import Control.Exception
 
-tryToOpenFile :: FilePath -> IO String
-tryToOpenFile path =
-  handle possibleErrors (readFile path)
-  where
-    possibleErrors :: IOException -> IO String
-    possibleErrors error = return "Aaaaa!!! Please check file."
-
 main :: IO ()
 main = do
-  fileContent <- tryToOpenFile "c://dev/test.c"
-  putStrLn fileContent
+  result <- try $ readFile path :: IO (Either IOException String)
+  case result of
+    Left exception -> putStrLn $ "Fault: " ++ show exception
+    Right content -> putStrLn content
+  where path = "c://dev/test.c"
