@@ -1,14 +1,7 @@
-import Data.String.Utils
+data IPAddress = IPAddress String
 
-checkGooglerBy :: String -> String
-checkGooglerBy email =
-  if endswith "gmail.com" email
-  then nameFrom email ++ " is a Googler!"
-  else email
-  where nameFrom  = takeWhile (/= '@') 
+instance Show IPAddress where
+  show (IPAddress address) =
+    if address == "127.0.0.1" then "localhost" else address
 
-main = print [checkGooglerBy email | email <- ["adam@gmail.com",
-                                               "bob@yahoo.com",
-                                               "richard@gmail.com",
-                                               "elena@yandex.ru",
-                                               "denis@gmail.com"]]
+main = putStrLn $ show $ IPAddress "127.0.0.1"
