@@ -3,6 +3,11 @@ removeAllEmptyNamesFrom listOfNames =
   filter notEmptyName listOfNames
   where notEmptyName = not . null
 
+addSmth :: [String] -> [String]
+addSmth listOfNames =
+  map addDear listOfNames
+  where addDear el = "Dear " ++ el
+
 main =
-  print $ removeAllEmptyNamesFrom listOfNames
+  print $ addSmth $ removeAllEmptyNamesFrom listOfNames
   where listOfNames = ["John", "", "Ann"]
