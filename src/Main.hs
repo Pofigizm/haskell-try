@@ -1,15 +1,15 @@
-type UserId = Integer
-type Prefix = String
+import Data.Char
+import Data.String.Utils
 
-obtainLogin :: UserId -> (Prefix -> String)
-obtainLogin userId =
-  loginStorage "denis" -- Подразумевается, что логин как-то получен.
-  where
-    loginStorage login prefix = prefix ++ ": " ++ login
+addPrefix :: String -> String
+addPrefix url =
+  if (startswith prefix url) then url else prefix ++ url
+  where prefix = "http://"
+
+encodeAllSpaces = replace " " "%20" -- Заменяем все пробелы на %20.
+
+makeItLowerCase = map toLower -- Переводим символы строки в нижний регистр.
 
 main =
-  let
-    userId = 1234
-  in
-    putStrLn ((obtainLogin userId) "My login")
-
+  putStrLn (addPrefix (encodeAllSpaces (makeItLowerCase url)))
+  where url = "www.SITE.com/test me/Start page"
