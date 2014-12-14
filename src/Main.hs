@@ -1,6 +1,8 @@
-data User = User { firstName :: String
-                 , lastName :: String
+data User = User { firstName
+                 , lastName
                  , email :: String
+                 , account
+                 , uid :: Integer
                  }
 
 changeEmail :: User -> String -> User
@@ -12,4 +14,6 @@ main =
   where user = User { firstName = "Denis"
                     , lastName = "Shevchenko"
                     , email = "me@dshevchenko.biz"
+                    , account = 24
+                    , uid = 15
                     }
