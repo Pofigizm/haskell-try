@@ -2,12 +2,10 @@ import Data.String.Utils
 
 checkGooglerBy :: String -> String
 checkGooglerBy email =
-  if email `endsWith` "gmail.com"
+  if endswith "gmail.com" email
   then nameFrom email ++ " is a Googler!"
   else email
-  where 
-    endsWith str suffix = endswith suffix str
-    nameFrom fullEmail = takeWhile (/= '@') fullEmail
+  where nameFrom  = takeWhile (/= '@') 
 
 main = print [checkGooglerBy email | email <- ["adam@gmail.com",
                                                "bob@yahoo.com",
