@@ -1,9 +1,9 @@
 {-
 main :: IO ()
 main = do
-  text <- getLine
-  putStrLn $ "You said '" ++ text ++ "'"
+  putStrLn "Denis"
+  putStrLn "Shevchenko"
 -}
 
 main :: IO ()
-main = getLine >>= \text -> putStrLn $ "Your text is " ++ text
+main = putStrLn "Denis" >> putStrLn "Iogansen"
