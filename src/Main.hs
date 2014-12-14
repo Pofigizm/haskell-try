@@ -5,6 +5,8 @@ obtainTwoTextsFromUser = do
   putStrLn "One more, please: "
   secondText <- getLine
   return $ "'" ++ firstText ++ "' and '" ++ secondText ++ "'"
+  putStrLn "Function return not stop run function :) "
+  getLine
 
 main :: IO ()
 main = do
