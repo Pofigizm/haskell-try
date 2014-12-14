@@ -1,7 +1,8 @@
-addNewHostToFront :: String -> [String] -> [String]
-addNewHostToFront newHost listOfHosts = newHost : listOfHosts
+removeAllEmptyNamesFrom :: [String] -> [String]
+removeAllEmptyNamesFrom listOfNames =
+  filter notEmptyName listOfNames
+  where notEmptyName = not . null
 
 main =
-  print $ addNewHostToFront "124.67.54.90" listOfHosts
-  where
-    listOfHosts = ["45.67.78.89", "123.45.65.54", "127.0.0.1"]
+  print $ removeAllEmptyNamesFrom listOfNames
+  where listOfNames = ["John", "", "Ann"]
