@@ -1,10 +1,16 @@
+import Data.String.Utils
 
-main =
-  print [if car == "Bentley" then "Wow!" else "Good!" | car <- cars]
-  where cars = ["Mercedes",
-                "BMW",
-                "Bentley",
-                "Audi",
-                "Bentley"]
+checkGooglerBy :: String -> String
+checkGooglerBy email =
+  if email `endsWith` "gmail.com"
+  then nameFrom email ++ " is a Googler!"
+  else email
+  where 
+    endsWith str suffix = endswith suffix str
+    nameFrom fullEmail = takeWhile (/= '@') fullEmail
 
---  ["Good!","Good!","Wow!","Good!","Wow!"]
+main = print [checkGooglerBy email | email <- ["adam@gmail.com",
+                                               "bob@yahoo.com",
+                                               "richard@gmail.com",
+                                               "elena@yandex.ru",
+                                               "denis@gmail.com"]]
