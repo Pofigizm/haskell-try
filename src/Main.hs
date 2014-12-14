@@ -3,8 +3,10 @@ import Data.String.Utils
 
 addPrefix :: String -> String
 addPrefix url =
-  if (startswith prefix url) then url else prefix ++ url
-  where prefix = "http://"
+  if url `startsWith` prefix then url else prefix ++ url
+  where
+    prefix = "http://"
+    startsWith url prefix = startswith prefix url
 
 encodeAllSpaces = replace " " "%20" -- Заменяем все пробелы на %20.
 
