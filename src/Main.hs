@@ -1,14 +1,12 @@
-data IPAddress = IP String | Host String
+data TransportLayer = TCP | UDP | SCTP | DCCP | SPX
 
-instance Show IPAddress where
-  show (IP address) =
-    address
+descriptionOf :: TransportLayer -> String
+descriptionOf protocol =
+  case protocol of
+    TCP -> "Transmission Control Protocol"
+    UDP -> "User Datagram Protocol"
+    SCTP -> "Stream Control Transmission Protocol"
+    DCCP -> "Datagram Congestion Control Protocol"
+    SPX -> "Sequenced Packet Exchange"
 
-  show (Host address) =
-    if address == "127.0.0.1" then "localhost" else address
-
-
-main = putStrLn $ 
-  (show $ IP "127.0.0.1")
-  ++ " " ++ 
-  (show $ Host "127.0.0.1")
+main = print $ descriptionOf TCP
