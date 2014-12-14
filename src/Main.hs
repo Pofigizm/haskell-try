@@ -1,9 +1,10 @@
 
 main =
-  print [prefix ++ name | name <- names, prefix <- namePrefix]
-  where
-    names = ["James", "Victor", "Denis", "Michael"]
-    namePrefix = ["Mr. ", "Dear "]
+  print [if car == "Bentley" then "Wow!" else "Good!" | car <- cars]
+  where cars = ["Mercedes",
+                "BMW",
+                "Bentley",
+                "Audi",
+                "Bentley"]
 
--- ["Mr. James","Dear James","Mr. Victor","Dear Victor",
---  "Mr. Denis","Dear Denis","Mr. Michael","Dear Michael"]
+--  ["Good!","Good!","Wow!","Good!","Wow!"]
