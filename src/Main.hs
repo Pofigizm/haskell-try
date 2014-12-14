@@ -2,10 +2,10 @@ import Control.Exception
 
 tryToOpenFile :: FilePath -> IO String
 tryToOpenFile path =
-  readFile path `catch` possibleErrors
+  handle possibleErrors (readFile path)
   where
     possibleErrors :: IOException -> IO String
-    possibleErrors error = return $ show error
+    possibleErrors error = return "Aaaaa!!! Please check file."
 
 main :: IO ()
 main = do
