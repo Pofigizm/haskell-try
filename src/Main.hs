@@ -1,9 +1,10 @@
-{-
-main :: IO ()
-main = do
-  putStrLn "Denis"
-  putStrLn "Shevchenko"
--}
+
+askForText :: IO String
+askForText = 
+  putStrLn "Enter your text, please: "
+  >> getLine >>= \firstText
+  -> return $ "You text is '" ++ firstText ++ "'"
 
 main :: IO ()
-main = putStrLn "Denis" >> putStrLn "Iogansen"
+main =
+  askForText >>= \txt -> putStrLn txt
