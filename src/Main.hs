@@ -13,5 +13,5 @@ encodeAllSpaces = replace " " "%20" -- Заменяем все пробелы н
 makeItLowerCase = map toLower -- Переводим символы строки в нижний регистр.
 
 main =
-  putStrLn ((addPrefix . encodeAllSpaces . makeItLowerCase) url)
+  putStrLn (addPrefix $ encodeAllSpaces $ makeItLowerCase url)
   where url = "www.SITE.com/test me/Start page"
